@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+	import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<link rel="stylesheet" type="text/css"
+	href="css/hhj/tablecloth.css" />
+		 
+<style type="text/css">
+.c-label {
+	display: inline-block;
+	width: 100px;
+	font-weight: bold;
+}
+th{background:#337ab7!important;line-height:32px;}
+td {
+	text-align: center;
+}
+th, td {
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+    border-bottom-color:transparent;
+    }
+.warnBlue{
+	background-color:#00B2EE!important;
+}
+.warnOrange{
+	background-color:#DAA520!important;
+}
+.warnRed{
+	background-color:#EE3B3B!important;
+}
+table {
+   font-size:16px;
+}
+</style>
+ 
+<!-- 
+<script type="text/javascript"
+	href="js/jquery-3.2.0.min.js"></script>
+ -->
+<script type="text/javascript" src="js/hhj/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="js/hhj/72WeatherInfo.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#roadid').combobox({
+		onSelect: function(param){
+			getReport();
+		}
+	});
+});
+</script>
+<title></title>
+</head>
+
+<body onload="getReport('12')">
+	<div style="width:1200px;margin:20px auto 0 auto;text-align:center">
+	    <h2 id="title1">
+	    </h2>
+	    <h3 id="DateInfo">
+	    </h3>
+        <div >
+        <table id="WeatherInfo" cellpadding=0 cellspacing=0 class='mReportOf7'>
+        </table>
+        </div> 
+	</div>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package com.fwzx.service;
+
+public interface ICRM_UserService {
+
+}

@@ -1,0 +1,235 @@
+package com.fwzx.controller;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.fwzx.service.ScheduleWorks;
+import com.fwzx.service.WeatherReportService;
+import com.fwzx.util.myFileFilter;
+/**
+ * 24小时预报 72小时预报 气象报
+ * @author han
+ *
+ */
+@Controller
+@RequestMapping(value="WeatherReport")
+public class WeatherReportController {
+   
+	@Autowired
+	private JdbcTemplate jdbcTemplate2;
+	
+	@Autowired
+	private WeatherReportService WeatherReportService;
+	
+	@RequestMapping(value="getAreaIdStation")
+	private void getAreaIdStation(){
+		String sql = "";
+	}
+	
+	
+	@RequestMapping(value="get24Info")
+	private void getInfo(HttpServletRequest request,HttpServletResponse response){
+		String sql = "select * from pro_task";
+		List<Map<String, Object>> list = jdbcTemplate2.queryForList(sql);
+		try {
+			response.getWriter().write(list.size());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 京津冀高速预报
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value="get24WeatherInfo")
+	private void getWeatherInfo(HttpServletRequest request,HttpServletResponse response){
+		response.setCharacterEncoding("utf-8");
+		String page = request.getParameter("page"),rows = request.getParameter("rows");
+		String element = request.getParameter("element"),username=request.getParameter("username");
+		String stations = request.getParameter("stations");
+		int ros = Integer.parseInt(rows)*8, pages = (Integer.parseInt(page)-1)*ros;
+	
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date ;
+		Calendar calendar = Calendar.getInstance();
+		
+		if (calendar.getTime().getHours()>=17&&calendar.getTime().getMinutes()>25) {
+			date = sFormat.format(calendar.getTime());
+		}else{
+			calendar.add(Calendar.DATE, -1);
+			date = sFormat.format(calendar.getTime());
+		}
+		
+		
+		
+		JSONObject object ;
+		
+		if (stations==null) {
+			 Object [] args ={"京沪高速","rain",date,pages,ros};
+			 object = WeatherReportService.get24weatherinfo(args);
+		}else{
+			 Object [] args ={stations,element,date,pages,ros};  	
+			 object =WeatherReportService.get24weatherinfo(args);
+		}	
+		
+		try {
+			response.getWriter().write(object.toJSONString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 京津冀三天预报
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value="get72WeatherInfo")
+	private void get72WeatherInfo(HttpServletRequest request,HttpServletResponse response){
+		response.setCharacterEncoding("utf-8");
+		String stations = request.getParameter("stations"),time = request.getParameter("time");
+		JSONArray weatherInifo = WeatherReportService.get72weatherinfo(); 
+		try {
+			response.getWriter().write(weatherInifo.toJSONString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 气象简报上传
+	 * @param request
+	 */
+	@RequestMapping(value="upSimpleReport")
+	private void upSimpleReport(HttpServletRequest request,HttpServletResponse response){
+        
+		String fileName = request.getParameter("fileName");
+		File file = new File(fileName);
+		String path = request.getServletContext().getRealPath(File.separator+"static"+File.separator+"pdf"+File.separator+file.getName());
+		File outfile = new File(path);
+		
+		InputStream inputStream;
+		OutputStream outputStream; 
+		byte cache[] = new byte[1024];
+		try {
+			inputStream = new FileInputStream(file);
+			outputStream = new FileOutputStream(outfile);
+			int length = 0;
+			while ( (length=inputStream.read(cache))!=-1) {
+				outputStream.write(cache, 0, length);
+			}
+			inputStream.close();
+			outputStream.close();
+		} catch ( IOException e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		try {
+			response.getWriter().write("ok");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		/*
+		if (!outfile.exists()) {
+			outfile.mkdir();
+		}
+		*/
+	}
+	
+	@RequestMapping(value="getSimpleLastTime")
+	private void getTimeDate(HttpServletRequest request,HttpServletResponse response){
+		String path = request.getServletContext().getRealPath(File.separator+"static"+File.separator+"pdf"+File.separator);
+		String LastTime=""; // 最新文件名字
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyyMMdd");
+		File files = new File(path);
+		File lastDefin = null ;
+		if (files.isDirectory()) {
+			File [] dFiles = files.listFiles(new myFileFilter(ScheduleWorks.Reportname));
+			if (dFiles.length==1) {
+				lastDefin = dFiles[0];
+			}else{
+			for (int i = 0; i < dFiles.length-1; i++) {
+					for (int j = 0; j < dFiles.length - i - 1; j++) { // 对当前无序区间dFiles[0......length-i-1]进行排序(j的范围很关键，这个范围是在逐步缩小的)
+						if (dFiles[j].lastModified() < dFiles[j + 1].lastModified()) { // 把小的值交换到后面
+							lastDefin = dFiles[j];
+							dFiles[j] = dFiles[j + 1];
+							dFiles[j + 1] = lastDefin;
+						}
+					}
+			}
+			}
+			if (lastDefin!=null) {
+				LastTime = sFormat.format(new Date(lastDefin.lastModified()));
+			}
+		}
+		try {
+			response.getWriter().write(LastTime);
+		} catch (IOException e) {
+			e.printStackTrace();
+		};
+	}
+	
+	/**
+	 * 最新简报命名
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping(value="getSimpleReport")
+	private void getSimpleReport(HttpServletRequest request,HttpServletResponse response){
+		String path = request.getServletContext().getRealPath(File.separator+"static"+File.separator+"pdf"+File.separator);
+		String LastName=""; // 最新文件名字
+		File files = new File(path);
+		File lastDefin = null ;
+		if (files.isDirectory()) {
+			File [] dFiles = files.listFiles(new myFileFilter(ScheduleWorks.Reportname));
+			if (dFiles.length==1) {
+				lastDefin = dFiles[0];
+			}else{
+			for (int i = 0; i < dFiles.length-1; i++) {
+					for (int j = 0; j < dFiles.length - i - 1; j++) { // 对当前无序区间dFiles[0......length-i-1]进行排序(j的范围很关键，这个范围是在逐步缩小的)
+						if (dFiles[j].lastModified() < dFiles[j + 1].lastModified()) { // 把小的值交换到后面
+							lastDefin = dFiles[j];
+							dFiles[j] = dFiles[j + 1];
+							dFiles[j + 1] = lastDefin;
+						}
+					}
+			}
+			}
+			if (lastDefin!=null) {
+				LastName = lastDefin.getName();
+			}
+		}
+		try {
+			response.getWriter().write(LastName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		};
+	}
+	
+ 
+
+	
+	
+}

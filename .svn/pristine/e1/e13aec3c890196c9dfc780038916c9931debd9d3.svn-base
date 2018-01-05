@@ -1,0 +1,81 @@
+package com.fwzx.controller;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+
+import com.alibaba.fastjson.JSON;
+import com.fwzx.util.PDFToImage;
+import com.fwzx.util.WordtoPDF;
+
+
+public class ShowJb {
+
+	public void show() throws IOException{
+		 
+		  WordtoPDF wordToPDF = new WordtoPDF();  
+		  Calendar now = Calendar.getInstance();
+		   int year=(now.get(Calendar.YEAR)); 
+		   int month= ((now.get(Calendar.MONTH) + 1)); 
+		   int day=((now.get(Calendar.DAY_OF_MONTH))); 
+		   String path = new File(this.getClass().getResource("/").getPath())
+			        .getParentFile().getParentFile().getParentFile().getCanonicalPath().replace("%20"," ");;
+		   String op=path+"/Automation/static/jb/pdf/"+String.valueOf(year)+(month<10?('0'+String.valueOf(month)):String.valueOf(month))+(day<10?('0'+String.valueOf(day)):String.valueOf(day));
+		   String opi=path+"/Automation/static/jb/image/"+String.valueOf(year)+(month<10?('0'+String.valueOf(month)):String.valueOf(month))+(day<10?('0'+String.valueOf(day)):String.valueOf(day));
+		   String pp=String.valueOf(year)+(month<10?('0'+String.valueOf(month)):String.valueOf(month))+(day<10?('0'+String.valueOf(day)):String.valueOf(day));
+		   String opw="D:/jt_products/RiskYB/"+pp;
+		
+//		   if (temp.equals("road")) {
+	
+//		}else{
+//			opw+="gs_gs_warning_road_zyt_**"+".doc";
+//		}
+		   
+		  File file = new File(opw);
+	        String [] fileName = file.list();
+	      for (int i = 0; i < fileName.length; i++) {
+	    	  if (fileName[i].indexOf("road")>-1) {
+	    		  wordToPDF.docToPdf(new File(opw+"/"+fileName[i]), new File(op+"road/"+"jb.pdf"));  
+	    	 } 
+	      }
+		 
+	      ArrayList OP = new ArrayList(); 
+	      PDFToImage pdf = new PDFToImage(); 
+	 
+	      
+		  
+		  
+			  HashMap obj=new HashMap<>();
+			  File yii2 = new File(opi+"road");
+		      yii2.mkdirs();  
+		      List<String> arr = new ArrayList();
+		      arr= pdf.pdftoIamge(2,op+"road/"+"jb.pdf", opi+"road/",path); 
+		      obj.put("road",arr );
+		      OP.add(obj);
+
+		 
+//	    try {
+//			re.getWriter().print(JSON.toJSONString(OP));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		      WebApplicationContext webApplicationContext = ContextLoader.getCurrentWebApplicationContext();    
+//		        ServletContext servletContext = webApplicationContext.getServletContext();  
+		    
+//		        servletContext.
+	      System.out.println(JSON.toJSONString(OP));
+		      //application.setAttribute("list",JSON.toJSONString(OP) );
+}
+
+}

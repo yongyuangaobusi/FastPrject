@@ -1,0 +1,118 @@
+package com.fwzx.service.impl;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.fwzx.service.WeatherReportService;
+import com.fwzx.util.DayOf7Util;
+
+@Service
+public class WeatherReportServiceImpl implements WeatherReportService {
+    
+	@Autowired
+	private JdbcTemplate jdbcTemplate2;
+	
+	
+	@Override
+	public JSONObject get24weatherinfo(Object [] args) {
+		JSONObject object = new JSONObject();
+		JSONArray stations = new JSONArray();
+		String sql = "SELECT a.data,a.sc,b.stationName,a.datatime,a.config FROM grib_reportdata a, stationinfo b WHERE b.highwayName=? AND b.num=a.station AND a.type=? AND a.datatime=? ORDER BY a.station ,sc limit ?,? ";
+		String sql2 = "SELECT a.data FROM grib_reportdata a, stationinfo b WHERE b.highwayName=? AND b.num=a.station AND a.type=? AND a.datatime=? "; 
+		List<Map<String, Object>> list = jdbcTemplate2.queryForList(sql, args);
+		List<Map<String, Object>> sizeList =  jdbcTemplate2.queryForList(sql2,args[0],args[1],args[2]);
+		
+		int size = list.size(),allsize=sizeList.size();
+		for(int i=0;i<size;i+=8){
+		    JSONObject station2 = new JSONObject();
+		    station2.put("name", list.get(i).get("stationName"));
+			for(int j=0;j<8;j++){
+			    int num = i+j;
+				station2.put("info"+j, (double)list.get(num).get("data"));
+		    }
+			stations.add(station2);
+		}
+		object.put("rows", stations);
+		object.put("total", allsize/8);
+		return object;
+	}
+
+	@Override  // 是否存在坏数据问题
+	public JSONArray get72weatherinfo() {
+		
+		
+		String []dateAndHour = getTimeStr();
+		String sql = "SELECT a.weather,a.tem_max,a.tem_min,a.wind_d,a.wind_s,b.city_name,c.WEATHER_NAME,c.imgid  FROM tbl_forcast a,tbl_station b,tbl_weather_img c WHERE a.station_id=b.station_id AND b.city_name=b.station_name AND c.NAME=a.weather AND b.province_name in('河北','北京','天津') AND a.datetime=? AND a.thour=? ORDER BY a.station_id, a.shici ASC ";
+		List<Map<String, Object>> list = jdbcTemplate2.queryForList(sql,dateAndHour);
+        
+		JSONArray jArray = new JSONArray();
+		int sizw = list.size();
+		int intevalNum = 6;
+		if (dateAndHour[1]=="20") {
+			intevalNum=14;
+		}
+		for (int i = 0; i < sizw; i = i + intevalNum) {
+			JSONObject jsObject = new JSONObject();
+			jsObject.put("station", list.get(i).get("city_name"));
+			JSONArray jsArray = new JSONArray();
+			for (int j = 0; j < 3; j++) {
+				JSONObject object = new JSONObject();
+				int in = i + j * 2 + 1;
+
+				String state0 = (String) list.get(in-1).get("weather_name"),state00 = (String) list.get(in).get("weather_name");
+				String state01 = (String) list.get(in-1).get("weather"),state02 = (String) list.get(in).get("weather");
+				String tem_min =  list.get(in).get("tem_min").toString(),
+					   tem_max =  list.get(in).get("tem_max").toString();
+				String windy = (String) list.get(in).get("wind_d"),winds = (String) list.get(in).get("wind_s");
+				int stateCode01 = (int) list.get(in-1).get("imgid"),stateCode02 = (int) list.get(in).get("imgid");
+				
+				object.put("state", DayOf7Util.getWeather(state01, state02));
+				object.put("temparature", DayOf7Util.getTemparature(tem_min, tem_max));
+				object.put("windy", DayOf7Util.getWindy(windy,winds));
+				object.put("imge", DayOf7Util.getImge(state0, state00));
+				object.put("level", stateCode01+","+stateCode02);
+				jsArray.add(object);
+			}
+			jsObject.put("date", jsArray);
+			jArray.add(jsObject);
+		}
+		return jArray;
+	}
+	
+	private String getDateStr(){
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
+		String date = sFormat.format(new Date());
+		return date;
+	}
+	
+	
+	private String[] getTimeStr(){
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyy-MM-dd");
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		String date = "",thour="";
+		if (calendar.getTime().getHours()>=17) {
+			 date = sFormat.format(calendar.getTime())+" 00:00:00";
+			 thour = "20";
+		} else if (calendar.getTime().getHours()>=5){
+			 date = sFormat.format(calendar.getTime())+" 00:00:00";
+			 thour = "08";
+		} else {
+			 calendar.add(Calendar.DATE, -1);
+			 date = sFormat.format(calendar.getTime())+" 00:00:00";
+			 thour = "20";
+		}
+		String [] strings ={date,thour};
+		return strings;
+	}
+
+}

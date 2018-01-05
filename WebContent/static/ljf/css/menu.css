@@ -1,0 +1,156 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body {
+    font-family: "\5FAE\8F6F\96C5\9ED1","Microsoft Yahei","Hiragino Sans GB",tahoma,arial,"\5B8B\4F53";
+    color: #85888e;
+    min-width: 1300px;
+}
+
+ul,
+li {
+	list-style: none
+}
+
+input,
+textarea {
+	outline: 0
+}
+
+img {
+	max-width: 100%
+}
+
+img,
+input {
+	border: 0;
+	vertical-align: top
+}
+
+a {
+	color: #85888e;
+	text-decoration: none;
+	outline: 0;
+}
+/*.middle{
+	width: 1200px;
+	margin: 0px auto;
+}*/
+.middle{
+	float: left;
+}
+.middle .leftMenu{
+	width: 200px;
+	height: 100%;
+	background-color: #354045;
+	float: left;
+	overflow: hidden;
+}
+
+/*隐藏菜单后的样式*/
+.middle .hidLeftMenu{
+	display: none;
+	/*padding-top: 80px;*/
+	width: 40px;
+	height: 100%;
+	background-color: #354045;
+	float: left;
+	border-right: 1px solid #49afcd;
+}
+.middle .hidLeftMenu .hidTitle{
+	color: #5AD1F2;
+	width: 20px;
+	margin-top: 20px;
+	line-height: 50px;
+	margin-left: 10px;
+	font-size: 20px;
+}
+.middle .hidLeftMenu .openMenu{
+	margin-left: 12px;
+	cursor: pointer;
+}
+/*隐藏菜单后的样式--结束*/
+
+.middle .leftMenu .topMenu{
+	height: 42px;
+	background-color: #586065;
+}
+.middle .leftMenu .topMenu img{
+	margin: 11px;
+	float: left;
+}
+.middle .leftMenu .topMenu .changeMenu{
+	cursor: pointer;
+}
+.middle .leftMenu .topMenu .banshi{
+	/*padding-left: 23px;*/
+}
+.middle .leftMenu .topMenu .menuTitle{
+	text-align: center;
+	color: #F2F2F2;
+	float: left;
+	line-height: 42px;
+	font-size: 16px;
+	width: 105px;
+}
+.menu_list {
+	width: 200px;
+	background: #354045;
+}
+.menu_list ul li{
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+.menu_list ul li .fuMenu{
+	color: #F2F2F2;
+	font-size: 14px;
+	cursor: pointer;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	width: 200px;
+	border-bottom: 2px solid #586065;
+	float: left;
+}
+.menu_list ul li .xiala{
+	float: left;
+	margin-left: -50px;
+	margin-top: 27px;
+}
+.menu_list ul li .div1 {
+	width: 100%;
+	height: auto;
+	float: left;
+}
+.menu_list ul li .div1 .zcd{
+	color: #F2F2F2;
+	font-size: 14px;
+	height: 60px;
+	background-color: #586065;
+	margin-bottom: 2px;
+	cursor: pointer;
+	line-height: 60px;
+	text-align: center;
+	width: 200px;
+	display: block;
+}
+.menu_list ul li .div1 .zcd a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: white;
+}
+.div1 {
+	height: 200px;
+	display: none;
+}
+.menu_list ul li .div1 .zcd:hover{
+	color: #FFFFFF;
+	background-color: #555555;
+}
+.removes{
+	color: #0FB9EF !important;
+	border-left: 16px solid #0FB9EF;
+}

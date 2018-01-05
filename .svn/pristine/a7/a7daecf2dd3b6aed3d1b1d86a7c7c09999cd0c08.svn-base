@@ -1,0 +1,277 @@
+@CHARSET "UTF-8";
+
+.station-inner-message-wrap{
+    position: absolute;
+    top: 50px;
+    right: 80px;
+    width: 315px;
+    background-color: #2E435D;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 9999999;
+    font-family: "Microsoft YaHei";
+    display: none;
+    padding-left: 10px;
+}
+
+.station-inner-message-wrap .station-inner-message-body{
+	position: absolute;
+	width: 303px;
+	overflow: hidden;
+	overflow-y: auto;
+    margin-top: 5px;
+}
+
+
+.station-inner-message-wrap .station-inner-message-body::-webkit-scrollbar {
+	/* width: 7px;
+	height: 7px; */
+}
+
+.station-inner-message-wrap .station-inner-message-body::-webkit-scrollbar-track-piece {
+	background: #2e435d;
+}
+
+.station-inner-message-wrap .station-inner-message-body::-webkit-scrollbar-thumb {
+	background: #50739C;
+	/* border-radius: 6px; */
+}
+
+.station-inner-message-wrap .station-inner-message-arrows{
+    display: none;
+	position: absolute;
+	top: -25px;
+	right: 20px;
+	border: 10px solid #2d93e1;
+	border-bottom-width: 15px;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.station-inner-message-wrap .station-inner-message-content-wrap{
+	width: 100%;
+}
+
+.station-inner-message-content-wrap-bottom{
+	display:none;
+	position: absolute;
+    top: 250px;
+    right: 80px;
+    width: 315px;
+    height: 30px;
+    line-height:30px;
+    z-index: 9999999;
+    background-color: #3481f0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: #C6E8FE;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 700;
+}
+
+.station-inner-message-wrap .station-inner-message-content{
+	width: 100%;
+	min-height: 50px;
+	padding: 5px 0;
+	cursor: pointer;
+}
+
+.station-inner-message-wrap .station-inner-message-content-header{
+	width: 11px;
+	height: 11px;
+	margin-top: 10px;
+	border: 3px solid #009B96;
+	border-radius: 100px;
+	background: #2E435D;
+	float: left;
+	margin-left: 5px;
+	z-index: 1;
+}
+
+.station-inner-message-wrap .selectOneDetailHeader{
+	border-color: #F8AA28;
+}
+
+.station-inner-message-wrap .station-inner-message-content-body{
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	width: 260px;
+	float: left;
+	background-color: #2e435d;
+	color: #BBCFED;
+	border-radius: 4px;
+	margin-left: 15px;
+	font-size: 14px;
+}
+
+.station-inner-message-wrap .selectOneDetail{
+	 background-color:#3F5B7B;
+	 border-radius: 0px;
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+}
+
+.station-inner-message-wrap .station-inner-message-content-body-detail{
+	display:none;
+    clear: both;
+	width: 260px;
+	height: 128px;
+    margin-left: 31px;
+    background-color:#3F5B7B;
+	border-top: 1px solid #567091;
+	cursor: default;
+}
+
+.station-inner-message-wrap .station-inner-message-content-body-detail-content{
+	width: 255px;
+    height: 100px;
+    padding: 5px 7px;
+    line-height: 24px;
+    color:#fff;
+    overflow-y: auto;
+}
+
+.station-inner-message-wrap .station-inner-message-content-body-detail-content::-webkit-scrollbar {
+	/* width: 7px;
+	height: 7px; */
+}
+
+.station-inner-message-wrap .station-inner-message-content-body-detail-content::-webkit-scrollbar-track-piece {
+	background: #2e435d;
+}
+
+.station-inner-message-wrap .station-inner-message-content-body-detail-content::-webkit-scrollbar-thumb {
+	background: #50739C;
+	/* border-radius: 6px; */
+}
+
+
+.station-inner-message-wrap .station-inner-message-content-body-detail-link{
+    margin-top: 3px;
+    text-align: right;
+    width: 245px;
+    color: #A6C2E2;
+}
+.station-inner-message-wrap .station-inner-message-content-body-detail-link a{
+	color: #A7C3E3;
+	cursor: pointer;
+}
+.station-inner-message-wrap .station-inner-message-content-body-content{
+	height: 30px;
+	line-height: 30px;
+    text-indent: 5px;
+}
+.station-inner-message-wrap .station-inner-message-content-body-hide{
+	display:none;
+	position: absolute;
+   	width: 8px;
+    height: 8px;
+    top: 13px;
+    right: 12px;
+    
+    border-top: 1px solid #7e9bc0;
+    border-left: 1px solid #7e9bc0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.station-inner-message-wrap .station-inner-message-content-body-arrows{
+	position: absolute;
+	top: 7.5px;
+	left: -16px;
+    border: 6px solid #2E435D;
+	border-right-width: 10px;
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-bottom-color: transparent;
+}
+
+.station-inner-message-wrap .selectOneDetailArrows{
+    border: 6px solid #3F5B7B;
+    border-right-width: 10px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.station-inner-message-content:hover .station-inner-message-content-header{
+	border-color: #F8AA28;
+}
+
+.station-inner-message-content:hover .station-inner-message-content-body{
+	background-color: #3F5B7B;
+	color: #fff;
+}
+
+.station-inner-message-content:hover .station-inner-message-content-body-arrows{
+	border-right-color: #3F5B7B;
+}
+
+.station-inner-message-wrap .station-inner-message-detail-wrap{
+	width: 100%;
+}
+
+.station-inner-message-detail-wrap .station-message-info{
+	width: 50%;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.station-inner-message-detail-wrap .station-message-info .station-message-info-name{
+	font-weight: bold;
+	float: left;
+	width: 40%;
+	text-align: left;
+}
+
+.station-inner-message-detail-wrap .station-message-info .station-message-info-content{
+	float: left;
+	width: 60%;
+	text-align: left;
+}
+
+.station-message-info-warn-content{
+	width: 100% !important;
+	background-color: #eaeffb;
+	height: 30px !important;
+}
+
+.station-message-info-warn-content .station-message-info-content{
+	width: 100% !important;
+	padding: 0 10px;
+	padding-top: 5px;
+	position: relative;
+}
+
+.station-message-info-warn-time .station-message-info-content{
+	text-align: right !important;
+}
+
+.station-inner-message-detail-wrap .station-message-info-link{
+	float: left;
+	width: 100% !important;
+	height: 20px;
+	line-height: 20px;
+	background-color: #eaeffb;
+	text-align: right;
+}
+
+.station-inner-message-detail-wrap .station-message-info-link .detail-link{
+	display: inline-block;
+	margin-right: 5px;
+}
+
+.station-inner-message-wrap .station-inner-message-link-line{
+	position: absolute;
+	top: 25px;
+	left: 10px;
+	width: 1px;
+	background: #dad6d7;
+	z-index: -2;
+}

@@ -1,0 +1,14 @@
+package com.fwzx.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping(value="login")
+public class CRM_UserController {
+   
+	@RequestMapping(value="loginIndex")
+	public String loginIndex(){
+		return "index";
+	}
+}

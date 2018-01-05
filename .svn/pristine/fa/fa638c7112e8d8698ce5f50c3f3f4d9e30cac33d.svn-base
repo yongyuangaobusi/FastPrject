@@ -1,0 +1,23 @@
+package com.fwzx.service;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.fwzx.util.TextUtle;
+/**
+ * 定时任务类
+ * @author han
+ *
+ */
+@Component
+public class ScheduleWorks {
+   
+	
+	
+	
+	@Scheduled(cron="0 15 17 * * ? ")
+	private void test(){
+		Thread thread = new Thread(new TextUtle());
+		thread.start();
+	}
+}

@@ -1,0 +1,15 @@
+package com.fwzx.service;
+
+import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+@Service
+public interface WeatherReportService {
+    // 未来24小时精细预报
+	JSONObject get24weatherinfo(Object[]args);
+	
+	// 未来三天预报
+	JSONArray get72weatherinfo();
+}

@@ -1,0 +1,547 @@
+@CHARSET "UTF-8";
+
+.base-date-agent-wrap *{
+	margin: 0;
+	padding: 0;
+}
+
+.base-date-agent-wrap{
+	border: 1px solid rgb(147, 169, 169);
+	z-index: 9999999;
+	border-radius: 5px;
+	box-shadow: 2px 3px 10px 3px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	padding: 5px 10px;
+	font-size: 12px;
+	background-color: white;
+}
+
+.base-date-agent-wrap table{
+	  border-spacing: 0 !important;
+}
+
+.base-date-agent-wrap .base-date-agent-date{
+	height: 185px;
+	width: 180px;
+	float: left;
+}
+
+.base-date-agent-wrap .date-month-year{
+	height: 25px;
+}
+
+.base-date-agent-wrap .base-date-agent-hour{
+	height: 185px;
+	width: 30px;
+	float: left;
+	margin-left: 5px;
+}
+
+.base-date-agent-wrap .date-month-year .month-pre{
+	width: 30px;
+	height: 25px;
+	position: relative;
+	float: left;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-month-year .month-btn-pre{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #243d70 transparent transparent;
+	left: 5px;
+	top: 7px;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-month-year .month-body{
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	float: left;
+	color: #243d70;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-month-year .year-body{
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	position: relative;
+	float: left;
+	color: #243d70;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-month-year .month-next{
+	width: 30px;
+	height: 25px;
+	position: relative;
+	float: left;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-month-year .month-btn-next{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent #243d70;
+	right: 5px;
+	top: 7px;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .base-date-agent-minute{
+	height: 185px;
+	width: 30px;
+	float: left;
+	margin-left: 5px;
+}
+
+.base-date-agent-wrap .date-body-table{
+	width: 180px;
+	height: 140px;
+	border-collapse: collapse;
+}
+
+.base-date-agent-wrap .date-ok{
+	margin-top: 3px;
+	width: 16px;
+	height: 16px;
+	background-image: url("../img/qd.png");
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .date-pad{
+	width: 30px;
+	height: 19px;
+	text-align: center;
+	background-color: #bdebee;
+	border: 1px solid #cacbcd;
+}
+
+.base-date-agent-wrap .date-cell{
+	width: 30px;
+	height: 19px;
+	text-align: center;
+	background-color: white;
+	cursor: pointer;
+	border: 1px solid #cacbcd;
+	padding: 1px;
+}
+
+.base-date-agent-wrap .weekend{
+	color: red;
+}
+
+.base-date-agent-wrap .other-month-date{
+	color: #6b6bff;
+}
+
+.base-date-agent-wrap ul{
+	width: 100%;
+	list-style: none;
+	position: absolute;
+}
+
+.base-date-agent-wrap .hour-body,
+.base-date-agent-wrap .minute-body{
+	height: 140px;
+	border: 1px solid #cacbcd;
+	overflow: hidden;
+	position: relative;
+}
+
+.base-date-agent-wrap li{
+	list-style: none;
+	display: block;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .select{
+	background-color: #398afc;
+	color: #fff;
+}
+
+.base-date-agent-wrap .base-date-agent-hour .hour-pre{
+	height: 25px;
+	position: relative;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .btn-pre{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #243d70 transparent;
+	left: 10px;
+	bottom: 10px;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .btn-next{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #243d70 transparent transparent transparent;
+	left: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .base-date-agent-hour .hour-next{
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .base-date-agent-minute .minute-pre{
+	height: 25px;
+	position: relative;
+	cursor: pointer;
+}
+
+.base-date-agent-wrap .base-date-agent-minute .minute-next{
+	height: 20px;
+	position: relative;
+	cursor: pointer;
+}
+
+.base-date-agent-month{
+	width: 60px;
+	height: 120px;	
+	border: 1px solid #cacbcd;
+	position: absolute;
+	background-color: white;
+	z-index: 99999999;
+}
+
+.base-date-agent-month .month-ul{
+	list-style: none;
+	width: 60px;
+	height: 120px;
+}
+
+.base-date-agent-month .month-ul .month-li{
+	list-style: none;
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	float: left;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.base-date-agent-year{
+	width: 60px;
+	height: 100px;	
+	border: 1px solid #cacbcd;
+	position: absolute;
+	background-color: white;
+	z-index: 99999999;
+}
+
+.base-date-agent-year .year-ul{
+	list-style: none;
+	width: 60px;
+	height: 80px;
+}
+
+.base-date-agent-year .year-ul .year-li{
+	list-style: none;
+	width: 30px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	float: left;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.base-date-agent-year .year-pre-next-btn{
+	position: absolute;
+	width: 60px;
+	height: 20px;
+	top: 80px;
+}
+
+.base-date-agent-year .year-pre-next-btn .year-btn-pre{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #243d70 transparent transparent;
+	left: 5px;
+	top: 5px;
+	cursor: pointer;
+}
+
+.base-date-agent-year .year-pre-next-btn .year-btn-cancel{
+	position: absolute;
+	left: 22px;
+	top: 3px;
+	cursor: pointer;
+	padding: 3px;
+	font-size: 12px;
+}
+
+.base-date-agent-year .year-pre-next-btn .year-btn-next{
+	position: absolute;
+	display: inline-block;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent #243d70;
+	right: 5px;
+	top: 5px;
+	cursor: pointer;
+}
+
+.digital-clock-agent-wrap{
+	width: 510px;
+	height: 80px;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.digital-clock-agent-wrap .clock-agent-clock-area{
+	width: 150px;
+	height: 50px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	text-align: center;
+}
+
+.clock-agent-clock-area .clock{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0 , 0, 0, 0);
+	vertical-align: 4px;
+	cursor: pointer;
+}
+
+.digital-clock-agent-wrap .clock-agent-pre-next-btn-area{
+	width: 20px;
+	padding-top: 10px;
+	padding-right: 10px;
+	float: left;
+}
+
+.digital-clock-agent-wrap .clock-agent-date-area{
+	width: 150px;
+	height: 50px;
+	margin-top: 12px;
+	margin-left: 10px;
+	float: left;
+	text-align: left;
+}
+
+.clock-agent-date-area .clock-date{
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	line-height: 23px;
+	color: #fff;
+	letter-spacing: 0.5px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.digital-clock-agent-wrap .clock-agent-refresh-btn-area{
+	width: 100px;
+	height: 70px;
+	margin-top: 10px;
+	margin-left: 5px;
+	float: left;
+	text-align: center;
+}
+
+.clock-agent-refresh-btn-area .clock-btn-refresh{
+	width: 100px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	font-size: 15px;
+	color: #fff;
+	letter-spacing: 8px;
+	text-align: right;
+	border-radius: 5px;
+	background-color: rgba(101, 158, 215, 0.8);
+	cursor: pointer;
+}
+
+.clock-agent-pre-next-btn-area .clock-btn{
+	width: 25px;
+	height: 20px;
+	line-height: 20px;
+	background-color: rgba(115, 167, 206, 1);
+	border-radius: 3px;
+	text-align: center;
+	margin-top: 5px;
+	margin-right: 5px;
+	float: left;
+	cursor: pointer;
+}
+
+.clock-agent-refresh-btn-area .auto-refresh{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+}
+
+.clock-agent-refresh-btn-area .auto-refresh .auto-refresh-checked{
+	display: none;
+}
+
+.clock-agent-refresh-btn-area .auto-refresh .auto-refresh-checked-label{
+	display: inline-block;
+	width: 100px;
+	margin-top: 5px;
+	font-size: 15px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.auto-refresh input[type="checkbox"] + label:before {
+	display: inline-block;
+	content: "";
+	margin: -2px 10px 3px 0px;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #a1a1a1;
+	background-image: url("../img/leftbar-checkbox.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	border-radius: 0px;
+	vertical-align: middle;
+	color: #C2E0FA;
+}
+
+.auto-refresh input[type="checkbox"]:checked + label:before {
+	border: 1px solid #a1a1a1;
+	background-image: url("../img/leftbar-checkbox-check.png");
+	color: #C2E0FA;
+}
+
+.clock-agent-pre-next-btn-area .clock-btn:HOVER{
+	background-color: rgba(44, 147, 225, 1);
+	color: #fff;
+}
+
+.clock-btn-pre{
+	background-image: url("../img/left.png");
+	background-repeat: no-repeat;
+	background-position: 3px 2px;
+}
+
+.clock-btn-pre:HOVER{
+	background-image: url("../img/left2.png");
+	background-repeat: no-repeat;
+	background-position: 3px 2px;
+}
+
+.clock-btn-next{
+	background-image: url("../img/right.png");
+	background-repeat: no-repeat;
+	background-position: 4px 2px;
+}
+
+.clock-btn-next:HOVER{
+	background-image: url("../img/right2.png");
+	background-repeat: no-repeat;
+	background-position: 4px 2px;
+}
+
+.clock-btn-pick{
+	background-image: url("../img/qz.png");
+	background-repeat: no-repeat;
+	background-position: 4px 2px;
+}
+
+.clock-btn-pick:HOVER{
+	background-image: url("../img/qz2.png");
+	background-repeat: no-repeat;
+	background-position: 4px 2px;
+}
+
+.clock-btn-refresh{
+	background-image: url("../img/sx.png");
+	background-repeat: no-repeat;
+	background-position: 6px 5px;
+}
+
+.clock-btn-refresh:HOVER{
+	background-image: url("../img/sx2.png");
+	background-repeat: no-repeat;
+	background-position: 6px 5px;
+}
+
+.customDateAgent{
+	display:inline-block;
+}
+.customDateAgent i{
+	cursor: pointer;
+}
+.customDateAgent .custom-date-before-wrap,
+.customDateAgent .custom-date-input-wrap{
+	display:inline-block;
+}
+.customDateAgent .custom-date-border{
+	border: 1px solid #d5d5d5;
+	display:inline-block;
+	margin-right: 5px;
+}
+
+.customDateAgent .custom-date-before-wrap{
+	border-right: 1px solid #d5d5d5;
+	color: #1A94DD;
+	cursor: pointer;
+	display: inline-block;
+	height: 21px;
+	line-height: 21px;
+	padding: 0 3px;
+}
+
+.customDateAgent .custom-date-ymdhm,
+.customDateAgent .custom-date-hh,
+.customDateAgent .custom-date-mm{
+	display:inline-block;
+	border: 0;
+	padding-left: 8px;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0);
+	height: 100%;
+	width: 120px;
+	border: none;
+}
+.customDateAgent .custom-date-ymd{
+	width: 80px;
+}
+
+.customDateAgent .custom-date-hh,
+.customDateAgent .custom-date-mm{
+	width: 30px;
+}
+.customDateAgent .custom-date-input-wrap i{
+	padding: 4px 2px;
+}
+.customDateAgent .custom-date-input-wrap i:hover{
+	background-color:#1A94DD;
+	color: #ffffff;
+}

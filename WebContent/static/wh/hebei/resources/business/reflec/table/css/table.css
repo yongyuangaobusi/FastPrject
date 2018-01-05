@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+.table_gridmake {
+	border-collapse: separate;
+    border-spacing: 2px;
+	background:#ebf5ff;
+	width: 100%;
+	max-width: 100%;
+	font:13px 'Microsoft YaHei', Helvetica, arial, sans-serif;
+}
+
+.table_gridmake thead th {
+	background:#5fbef3;
+	height: 25px;
+	text-align: center;
+}
+
+.table_gridmake thead td {
+	text-align: center;
+	background: #99D8F6;
+	height: 25px;
+}
+
+.table_gridmake tbody td {
+	padding:0;
+	text-align: center;
+	background: #C2DAF3;
+	height: 30px;
+	width:40px;
+	color: #415793;
+}
+
+.table_gridmake tbody td input {
+	height: 28px;
+	width:36px;
+	padding:0;
+	border: none;
+	margin-left: -10px;
+	margin-right: -10px;
+	text-align: center;
+	color: #415793;
+}
+
+.tdSelect {
+	 background: #3eb397 !important;
+	 color: #FFF !important; 
+}
+
+.tdBroadcast {
+	background: #FCECD5 !important;
+	color: #B56740 !important;
+}
+
+.tdLock {
+	background: #C0C0C0 !important;
+	color: #415793 !important;
+}
+	

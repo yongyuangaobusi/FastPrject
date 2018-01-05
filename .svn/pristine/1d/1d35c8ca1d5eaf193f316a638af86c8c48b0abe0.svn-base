@@ -1,0 +1,151 @@
+package com.fwzx.service;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import com.artofsolving.jodconverter.DocumentConverter;
+import com.artofsolving.jodconverter.openoffice.connection.OpenOfficeConnection;
+import com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConnection;
+import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;
+import com.fwzx.controller.LiveRestTemplate;
+import com.fwzx.util.TextUtle;
+import com.fwzx.util.myFileFilter;
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+/**
+ * 定时任务类
+ * @author han
+ *
+ */
+@Component
+public class ScheduleWorks {
+   
+	
+	public static String Reportname = "gsqxjb_risk_zyt_road";
+	/**
+	 * 格点天气要素入库
+	 */
+	@Scheduled(cron="0 22 17 * * ? ")
+	private void annalysisElement(){
+		Thread thread = new Thread(new TextUtle());
+		thread.start();
+	}
+	/**
+	 * 解析word 上传pdf
+	 */
+	@Scheduled(cron="0 0/30 * * * ?")
+	private void SimpleReport(){
+		SimpleDateFormat sFormat = new SimpleDateFormat("yyyyMMdd");
+		String dir = sFormat.format(new Date());
+		File file = new File("D:"+File.separator+"jt_products"+File.separator+"RiskYB"+File.separator+dir);
+		File[] files = null;
+		if (file.isDirectory()) {
+			File filePdf[] = file.listFiles(new myFileFilter(".pdf"));
+			if (filePdf.length>=1) { // 存在pdf  判断pdf是否上传
+				StringBuilder info = null;
+				try {
+					URL url = new URL("http://127.0.0.1:8080/Automation/WeatherReport/getSimpleLastTime");
+					URLConnection connection = url.openConnection();
+					connection.setReadTimeout(10000);
+					InputStream io = connection.getInputStream();
+					InputStreamReader iReader = new InputStreamReader(io);
+					BufferedReader bReader = new BufferedReader(iReader);
+					String line;
+					info = new StringBuilder();
+					while ((line=bReader.readLine())!=null) {
+						info.append(line);
+					}
+					bReader.close();
+					iReader.close();
+					io.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				if (info.toString().equals(dir)) {
+				
+				}else{
+					try {
+						String urlStr ="http://127.0.0.1:8080/Automation/WeatherReport/upSimpleReport?fileName="+filePdf[0].getPath(); 
+						URL url = new URL(urlStr);
+						URLConnection connection = url.openConnection();
+						connection.setReadTimeout(10000);
+						InputStream io = connection.getInputStream();
+						InputStreamReader iReader = new InputStreamReader(io);
+						BufferedReader bReader = new BufferedReader(iReader);
+						String line;
+						while ((line=bReader.readLine())!=null) {
+						}
+						bReader.close();
+						iReader.close();
+						io.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			}else{ // 转换word文件
+				files = file.listFiles(new myFileFilter(".doc"));
+				for (int i = 0; i < files.length; i++) {
+					String outName = files[i].getName();
+			       	if (outName.contains(Reportname)) {
+			       		File outputFile = new File(file.getPath()+File.separator+outName.substring(0, outName.length()-4)+".pdf");
+			       		WordToPdf(files[i], outputFile);
+					}
+				}	
+			}
+		}
+	}
+	
+	@Scheduled(cron="0 5,7 0-23 * * ? ")
+	private void realityElectric(){
+		LiveRestTemplate liveRestTemplate = new LiveRestTemplate();
+		liveRestTemplate.getobj();
+	}
+	
+	@Scheduled(cron="0 5,10 7,11,17 * * ? ")
+	private void reportEletric(){
+		Thread thread = new Thread(new ElectricFile());
+		thread.start();
+	}
+	
+	private void WordToPdf(File inputFile,File outputFile){
+		//启动服务 执行完关闭
+		String OpenOffice_HOME = "C:/Program Files (x86)/OpenOffice 4";// 这里是OpenOffice的安装目录
+		if(OpenOffice_HOME.charAt(OpenOffice_HOME.length()-1)!='/'){
+			OpenOffice_HOME+="/";
+		}
+		Process pro = null;
+		OpenOfficeConnection connection = null;
+		// 启动OpenOffice的服务   
+        String command = OpenOffice_HOME + "program/soffice.exe -headless -accept=\"socket,host=127.0.0.1,port=8100;urp;\"";
+		// connect to an OpenOffice.org instance running on port 8100
+	   
+	    try{
+	    	pro = Runtime.getRuntime().exec(command);
+	    	connection = new SocketOpenOfficeConnection(8100);
+	    	connection.connect();
+		    DocumentConverter converter = new OpenOfficeDocumentConverter(connection);
+		    converter.convert(inputFile, outputFile);
+	    }catch(Exception ex){
+	    	ex.printStackTrace();
+	    }finally{
+		    // close the connection
+	    	if(connection!=null){
+	    	   connection.disconnect();
+	    	   connection = null;
+	    	}
+	    	pro.destroy();
+	    }
+	}
+	
+}

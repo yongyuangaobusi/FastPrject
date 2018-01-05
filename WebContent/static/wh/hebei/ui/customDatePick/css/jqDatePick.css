@@ -1,0 +1,358 @@
+@CHARSET "UTF-8";
+
+.jq-date-pick-wrap{
+	position: absolute;
+	width: 298px;
+	background-color: #2892e0;
+	height: 308px;
+	border-radius: 3px;
+	padding: 2px;
+	margin-top: 7px;
+	z-index: 999999;
+}
+
+.jq-date-pick-wrap *{
+	margin: 0;
+	padding: 0;
+}
+
+.jqdp-month-year-opera{
+	position:relative;
+	height: 25px;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+}
+
+.jqdp-select{
+	background-color: #fff;
+	color: #000;
+}
+
+.jqdp-year-select{
+	display:none;
+	position:absolute;
+	width: 100px;
+	height: 180px;	
+	border: 1px solid #c5d2e5;
+    left: 82px;
+    top: 25px;
+    background: #fff;
+    z-index: 9999;
+}
+
+.jqdp-year-select .year-area{
+	width: 100%;
+	height:150px;
+}
+.jqdp-year-select .year-area>div{
+	float:left;
+	width: 50%;
+	height: 30px;
+	line-height:30px;
+	text-align:center;
+    color: #5e5e5e;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.year-area-control >div{
+	float:left;
+	padding-left:5px;
+    width: 50%;
+    height: 30px;
+}
+
+.year-area-control i{
+	width: 20px;
+	cursor: pointer;
+}
+
+.jqdp-month-select{
+	display:none;
+	position:absolute;
+	width: 60px;
+	height: 180px;	
+	border: 1px solid #c5d2e5;
+    left: 150px;
+    top: 25px;
+    font-size: 12px;
+    background: #fff;
+    z-index: 9999;
+}
+
+.jqdp-month-select>div{
+	float:left;
+	width:29px;
+	height: 30px;
+	line-height:30px;
+	text-align:center;
+    color: #5e5e5e;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.jqdp-year-prev{
+	width: 50px;
+	height: 25px;
+	line-height: 25px !important;
+	float: left;
+	cursor: pointer;
+}
+
+.jqdp-month-prev{
+	width: 47px;
+	height: 25px;
+	line-height: 25px !important;
+	float: left;
+	cursor: pointer;
+}
+
+.jqdp-month-year-content{
+	width: 100px;
+	height: 25px;
+	line-height: 25px !important;
+	float: left;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.jqdp-month-year-content>div{
+	float: left;
+}
+
+.jqdp-month-year-content-year{
+	width: 50px;
+}
+.jqdp-month-year-content-with{
+	width: 18px;
+}
+
+.jqdp-month-year-content-month{
+	width: 30px;
+}
+
+.jqdp-month-next{
+	width: 47px;
+	height: 25px;
+	line-height: 25px !important;
+	float: left;
+	cursor: pointer;
+}
+
+.jqdp-year-next{
+	width: 50px;
+	height: 25px;
+	line-height: 25px !important;
+	float: left;
+	cursor: pointer;
+}
+
+.jqdp-date-main{
+	width: 294px;
+	height: 273px;
+	margin-top: 5px;
+	background-color: #fff;
+	padding: 5px;
+}
+
+.jqdp-date-wrap{
+	width: 100%;
+	height: 200px;
+}
+
+.jqdp-hm-wrap{
+	width: 285px;
+	margin-top: 10px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 13px;
+	color: #444;
+}
+
+.jqdp-hm-select-wrap{
+	float: left;
+	width: 100px;
+	height: 22px;
+	line-height: 22px;
+	position: relative;
+}
+
+.jqdp-hm-select{
+	width: 75px;
+	height: 22px;
+	line-height: 22px;
+	padding-left: 5px;
+	border: 1px solid #c5d2e5;
+	margin-right: 5px;
+	position: relative;
+	cursor: pointer;
+	float: left;
+}
+
+.jqdp-hm-select .jqdp-hm-content{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 22px;
+	line-height: 22px;
+	width: 65px;
+	padding-left: 5px;
+}
+
+.jqdp-hm-select .jqdp-hm-icon{
+	position: absolute;
+	top: 7px;
+	right: 2px;
+	border-top: 5px solid #000;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-bottom: 5px solid transparent;
+}
+
+.jqdp-hm-select-wrap .jqdp-hm-options{
+	display: none;
+	position: absolute;
+	top: 20px;
+	left: 0px;
+	height: 102px;
+	width: 200px;
+	border: 1px solid #c5d2e5;
+	background-color: #fff;
+	z-index: 9999;
+}
+
+.jqdp-hm-options .jqdp-hm-option-title{
+	background-color: #2892e0;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	height: 22px;
+	line-height: 22px;
+	float: left;
+}
+
+.jqdp-hm-options .jqdp-hm-option{
+	float: left;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	border: 1px solid #fff;
+	margin: 5px 0 0 4px;
+	cursor: pointer;
+}
+
+.jqdp-hm-options .jqdp-hm-option-selected{
+	background-color: #2892e0;
+	color: #fff;
+	font-weight: bold;
+}
+
+.jqdp-hm-select:last-child{
+/* 	margin-left: 10px; */
+}
+
+.jqdp-btn-wrap{
+	width: 285px;
+	height: 25px;
+	line-height: 25px;
+	padding-top: 5px;
+}
+
+.jqdp-btn{
+	width: 65px;
+	height: 22px;
+	line-height: 20px !important;
+	margin-right: 8px;
+	border: 1px solid #c5d2e5;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 2px;
+}
+
+.jqdp-btn i{
+	font-style: normal;
+}
+
+.jqdp-btn:last-child{
+	margin-right: 0px;
+}
+
+.jqdp-btn-icon {
+	display: block;
+	line-height: 20px !important;
+	color: #789afa;
+	font-size: 20px !important;
+	height: 100%;
+	float: left;
+	margin-left: 10px;
+}
+
+.jqdp-btn-text {
+	display: block;
+	line-height: 20px !important;
+	height: 100%;
+	float: left;
+	margin-left: 10px;
+}
+
+.jqdp-mg-ten{
+	margin-left: 10px;
+}
+
+.jqdp-btn:hover{
+	color: #fff;
+	background-color: #2892e0;
+	border: 1px solid #2892e0;
+}
+
+.jqdp-btn:hover .jqdp-btn-icon{
+	color: #fff;
+}
+
+.jqdp-date-table{
+	width: 100%;
+	height: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.jqdp-date-table th, .jqdp-date-table td{
+}
+
+.jqdp-header-cell{
+	border: 1px solid #fff;
+	border-bottom: none;
+	color: #5e5e5e;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.jqdp-date-cell{
+	border: 1px solid #e5e5e5;
+	color: #5e5e5e;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.jqdp-date-cell-valid{
+	cursor: pointer;
+}
+
+.jddp-other-month-date{
+	background-color: #f6f6f6;
+	color: #cacaca;
+}
+
+.jqdp-date-select{
+	background-color: #2892e0;
+	border: 1px solid #2892e0;
+	color: #fff;
+}

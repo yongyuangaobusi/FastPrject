@@ -1,0 +1,514 @@
+html，body{
+	width: 100%；
+	height: 100%；
+}
+body{
+	width: 100%；
+	height: 100%；
+}
+body {
+	padding: 0px;
+	font-family: "微软雅黑";
+}
+
+ul,li,div,p,dl,dt,dd,a {
+	padding: 0px;
+	margin: 0px;
+}
+
+.main-container {
+	min-width: 675px;
+}
+
+.col-md-2 {
+	min-height: 0px;
+}
+
+label {
+	margin-bottom: 0px;
+	font-weight: normal;
+	font-family: "微软雅黑";
+}
+
+.headdiv {
+	width: 100%;
+	position: absolute;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	background-color: #3d3d3d;
+	opacity: 0.09;
+	z-index: 0;
+}
+
+.no-skin {
+	/* background: url("../images/yw_bg.png") no-repeat; */
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.pad {
+	padding: 10px 50px;
+}
+
+.pad10 {
+	padding: 5px 0px;
+	line-height: 48px;
+}
+
+.banner_logo {
+	background: url("../images/logo.png") no-repeat;
+	width: 163px;
+	height: 28px;
+	z-index: 1999;
+}
+
+.com {
+	float: right;
+	height: 38px;
+	line-height: 38px;
+	font-weight: bold;
+	color: #29394b;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.zsk {
+	width: 120px;
+	padding-left: 45px;
+}
+
+.tooldow {
+	width: 138px;
+	margin-right: 50px;
+	padding-left: 40px;
+}
+
+.login_main {
+	width: 421px;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+.tit {
+	font-size: 44px;
+	color: #333;
+}
+
+.con {
+	height: 360px;
+	background-color: #ffffff;
+	opacity: 0.48;
+	width: 421px;
+	border-radius: 0px 0px 5px 5px;
+	border: 1px solid #aaa;
+	box-shadow: 0 0 5px #000;
+}
+
+.head {
+	padding-left: 15px;
+	margin-top: 20px;
+	line-height: 50px;
+	height: 50px;
+	font-size: 18px;
+	color: #fff;
+	background-color: #29394b;
+	text-align: left;
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: 0 0 5px #000;
+}
+
+.left {
+	float: left;
+	width: 120px;
+}
+
+.right {
+	width: 277px;
+	float: right;
+	height: 50px;
+	background-image: url("../images/top_bg.png");
+}
+
+.loginInfo input {
+	border: 1px solid #24aa98;
+	float: left;
+	margin-left: 76px;
+	width: 260px;
+	height: 28px;
+	background: transparent;
+}
+
+.loginInfo {
+	width: 100%;
+	position: absolute;
+	padding: 50px;
+	top: 0px;
+	padding-left: 0px;
+}
+
+.mt30 {
+	margin-top: 20px;
+}
+
+.line {
+	float: left;
+	margin-top: 10px;
+	background-color: #79b6c7;
+	height: 1px;
+	width: 100%;
+}
+
+.userName {
+	background: url("../images/yhm.png") no-repeat;
+	height: 70px;
+}
+
+.password {
+	background: url("../images/mima.png") no-repeat;
+	height: 70px;
+}
+
+.rember {
+	text-align: left;
+	font-size: 16px;
+	padding-left: 70px;
+}
+
+.lob {
+	margin-top: 50px;
+}
+
+.loginBut {
+	width: 298px;
+	height: 52px;
+	background-color: #24aa98;
+	color: #fff;
+	font-size: 22px;
+	line-height: 52px;
+	margin-left: 63.5px;
+	border-radius: 6px;
+}
+
+.loginBut:hover {
+	background-color: #209888;
+	cursor: pointer;
+}
+
+.bom {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
+
+.foot_phone {
+	padding-left: 30px;
+	background: url("../images/phone.png") no-repeat;
+	color: #fff;
+	font-weight: bold;
+	width: 200px;
+	height: 21px;
+	line-height: 21px;
+}
+
+@
+-moz-keyframes dothabottomcheck { 0% {
+	height: 0;
+}
+
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+6
+px
+
+
+
+
+;
+}
+}
+@
+-webkit-keyframes dothabottomcheck { 0% {
+	height: 0;
+}
+
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+6
+px
+
+
+
+
+;
+}
+}
+@
+keyframes dothabottomcheck { 0% {
+	height: 0;
+}
+
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+6
+px
+
+
+
+
+;
+}
+}
+@
+keyframes dothatopcheck { 0% {
+	height: 0;
+}
+
+50%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+0;
+}
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+10
+px
+
+
+
+
+;
+}
+}
+@
+-webkit-keyframes dothatopcheck { 0% {
+	height: 0;
+}
+
+50%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+0;
+}
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+10
+px
+
+
+
+
+;
+}
+}
+@
+-moz-keyframes dothatopcheck { 0% {
+	height: 0;
+}
+
+50%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+0;
+}
+100%
+{
+height
+
+
+
+
+:
+
+
+ 
+
+
+10
+px
+
+
+
+
+;
+}
+}
+input[type=checkbox] {
+	display: none;
+}
+
+.check-box {
+	float: left;
+	margin-left: 5px;
+	height: 20px;
+	width: 20px;
+	background-color: transparent;
+	border: 10px solid #24aa98;
+	border-radius: 5px;
+	position: relative;
+	display: inline-block;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-transition: border-color ease 0.2s;
+	-o-transition: border-color ease 0.2s;
+	-webkit-transition: border-color ease 0.2s;
+	transition: border-color ease 0.2s;
+	cursor: pointer;
+}
+
+.check-box::before,.check-box::after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	height: 0;
+	width: 2px;
+	background-color: #fff;
+	display: inline-block;
+	-moz-transform-origin: left top;
+	-ms-transform-origin: left top;
+	-o-transform-origin: left top;
+	-webkit-transform-origin: left top;
+	transform-origin: left top;
+	border-radius: 5px;
+	content: ' ';
+	-webkit-transition: opacity ease .5;
+	-moz-transition: opacity ease .5;
+	transition: opacity ease .5;
+}
+
+.check-box::before {
+	top: 5px;
+	left: 0px -moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	left: 0px
+}
+
+.check-box::after {
+	top: 0px;
+	left: -5px;
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked+.check-box,.check-box.checked {
+	border-color: #24aa98;
+}
+
+input[type=checkbox]:checked+.check-box::after,.check-box.checked::after
+	{
+	height: 6px;
+	-moz-animation: dothabottomcheck 0.2s ease 0s forwards;
+	-o-animation: dothabottomcheck 0.2s ease 0s forwards;
+	-webkit-animation: dothabottomcheck 0.2s ease 0s forwards;
+	animation: dothabottomcheck 0.2s ease 0s forwards;
+}
+
+input[type=checkbox]:checked+.check-box::before,.check-box.checked::before
+	{
+	height: 10px;
+	-moz-animation: dothatopcheck 0.4s ease 0s forwards;
+	-o-animation: dothatopcheck 0.4s ease 0s forwards;
+	-webkit-animation: dothatopcheck 0.4s ease 0s forwards;
+	animation: dothatopcheck 0.4s ease 0s forwards;
+}

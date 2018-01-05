@@ -1,0 +1,29 @@
+package com.fwzx.controller;
+
+
+	import java.io.File;
+
+import com.fwzx.util.PDFToImage;
+
+//	public class Test { 
+//	  public static void main(String[] args) {  
+//	    //word 转 pdf  
+//		  WordtoPDF wordToPDF = new WordtoPDF();  
+//	    wordToPDF.docToPdf(new File("C:/Users/PC/Desktop/朔黄铁路气象服务开发需求说明书最新 20170622.doc"), new File("C:/Users/admin/Desktop/logback.pdf"));  
+//	      
+//	    //excel 转 pdf  
+//	  //  wordToPDF.docToPdf(new File("E:/interface.xlsx"), new File("C:/Users/admin/Desktop/ss/interface.pdf"));  
+//	  
+//	  }  
+//}
+	import java.io.File;  
+
+	  
+	 
+	public class Test {  
+	public static void main(String[] args) {  
+	   //测试 pdf 生成 图片 （加水印）  
+	  PDFToImage pdf = new PDFToImage();  
+	  pdf.pdftoIamge(10,"C:/Users/admin/Desktop/logback.pdf", "C:/Users/admin/Desktop/ss/");  
+	 }  
+	}

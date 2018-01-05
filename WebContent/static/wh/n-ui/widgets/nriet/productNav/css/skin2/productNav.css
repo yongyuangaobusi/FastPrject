@@ -1,0 +1,101 @@
+.right-colsbtn{
+	width: 42px;
+	height: 39px;
+	border: 1px solid #888;
+	border-top:3px solid #1A94DD;
+	margin-left: -31px;
+	border-left: none;
+	padding: 0px;
+	background:white;
+	box-shadow:2px 1px 2px #888;
+	position: relative;
+	z-index:2;
+}
+
+.right-colsbtn a{
+	display:block;
+	color:#1A94DD;
+	text-align:center;
+	margin-top:5px;
+	font-size:15px;
+	border-left: dotted 3px gainsboro;
+}
+
+.right-btn{
+	width: 42px;
+	height: 32px;
+	border: 1px solid #888;
+	margin-left: -31px;
+	border-left: none;
+	margin-top:6px; 
+	box-shadow:1px 1px 3px #888;
+	border-radius: 0 4px 4px 0;
+	background:#f7f7f7;
+	position: relative;
+	z-index:0;
+}
+
+.right-btn:hover{
+	width: 82px;
+	height: 32px;
+	border: 1px solid #1A94DD;
+	border-left:3px solid #1A94DD;
+	margin-left: -31px;
+	box-shadow:1px 1px 3px #888;
+	border-radius: 0px 4px 4px 0px;
+}
+
+.right-btn.active{
+	width: 42px;
+	height: 32px;
+	border: 1px solid #1A94DD;
+	border-left:3px solid #D3A400;
+	margin-left: -31px;
+	box-shadow:1px 1px 3px #888;
+	border-radius: 0px 4px 4px 0px;
+	background:#1A94DD;
+}
+
+.right-btn.active:hover{
+	width: 82px;
+	height: 32px;
+	border: 1px solid #1A94DD;
+	border-left:3px solid #D3A400;
+	margin-left: -31px;
+	box-shadow:1px 1px 3px #888;
+	border-radius: 0px 4px 4px 0px;
+	background:#1A94DD;
+}
+
+
+.right-btn > a{
+	display:block;
+	color:#888;
+	text-align:center;
+	padding-top:5px;
+	font-size:15px;
+}
+
+.right-btn:hover > a{
+	display:block;
+	color:#1A94DD;
+	text-align:center;
+	padding-top:5px;
+	font-size:15px;
+}
+
+.right-btn.active > a{
+	display:block;
+	color:white;
+	text-align:center;
+	padding-top:5px;
+	font-size:15px;
+	font-weight: 400;
+	font-weight: bold;
+}
+
+.productTab .tabs-container {
+	position: relative;
+	z-index:1;
+}
+

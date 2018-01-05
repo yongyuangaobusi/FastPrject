@@ -1,0 +1,46 @@
+{
+	"status": 0,
+	"message": "获取列表成功!",
+	"data": [
+		{
+			"name": "北京1",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京2",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京3",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京4",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京5",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京6",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京7",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		},
+		{
+			"name": "北京8",
+			"level": "红色",
+			"starttime": "2000.00.00"
+		}
+	]
+}

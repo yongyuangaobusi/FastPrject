@@ -1,0 +1,239 @@
+.warning-analysis-container {
+	width: 100%;
+	padding: 10px;
+	margin: 0;
+	position: relative;
+	font-size: 13px;
+	color: #264b97;
+}
+.warning-analysis-container i {
+	font-style: normal;
+	display: block;
+}
+.warning-analysis-container .analysisbox {
+	float: left;
+	width: 320px;
+	position: relative;
+	margin-bottom: 10px;
+	background: #d7eafe;
+	border-bottom: 1px solid #d7eafe;
+}
+.warning-analysis-container .analysisbox-title {
+	width: 28px;
+	float: left;
+	padding: 0.5em;
+	line-height: 1.1em;
+	text-align: center;
+	position: relative;
+}
+
+.warning-analysis-container .analysisbox-content {
+	float: left;
+	min-height: 42px;
+	background: #fff;
+	width: 292px;
+}
+
+.warning-analysis-container .analysisbox-content-vis {
+	padding: 9px 0;
+}
+
+.warning-analysis-container .analysisbox-li,
+.warning-analysis-container .analysisbox-li1 {
+	float: left;
+	width: 97px;
+	cursor: pointer;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	padding-left: 5px;
+	margin-top: 3px;
+}
+
+.warning-analysis-container .analysisbox-li-auto{
+	width: auto;
+}
+
+.warning-analysis-container .analysisbox-li-four{
+	width: 73px;
+}
+
+.warning-analysis-container .analysisbox-li-five{
+	width: 45px;
+}
+
+.warning-analysis-container .analysisbox-li i, .warning-analysis-container .analysisbox-li2 i {
+	
+}
+.warning-analysis-container .analysisbox-li > div, .warning-analysis-container .analysisbox-li2 > div {
+	padding: 0 6px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	border-radius: 3px;
+}
+.warning-analysis-container .analysisbox-ulTitle i {
+	color: #a9895b !important;
+	font: 14px;
+}
+.warning-analysis-container .analysisbox-li2 {
+	width: 181px;
+	padding-left: 6px;
+	cursor: pointer;
+}
+
+.warning-analysis-container .analysisbox-ul {
+	margin: 5px 0;
+	width: 292px;
+	-webkit-padding-start: 0;
+	list-style-type: none;
+	float: left;
+}
+.warning-analysis-container .analysisbox-ul-half {
+	margin: 5px 0;
+	width: 292px;
+	-webkit-padding-start: 0;
+	list-style-type: none;
+	float: left;
+}
+.warning-analysis-container .analysisbox-ul-half:first-child {
+}
+
+.warning-analysis-container .analysisbox-ulTitle {
+	cursor: default;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+}
+
+.warning-analysis-container .selectedpro {
+	background: #ea9420;
+}
+.warning-analysis-container .selectedpro > i {
+	color: #fff;
+}
+
+#warning-analysis-timeTip {
+	position: absolute;
+	font-weight: bold;
+	top: 70px;
+	border: 1px solid rgba(0, 0, 0, 0.6);
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.6);
+	left: 780px;
+	padding: 6px 8px;
+	color: #fff;
+	font-size: 18px;
+}
+
+.warningAnalysisLegend-unit {
+	z-index: 99;
+	position: absolute;
+	color: rgb(128,135,135);
+	font-weight: bold;
+	left: -1px;
+	top: 584px;
+	width: 81px;
+}
+
+li.analysisbox-ulTitle.analysisbox-li {
+	float: none;
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+
+.analysisbox-leftline {
+	width: 62px;
+	border-bottom: 1px dashed #dfeaef;
+	position: absolute;
+	margin-top: -11px;
+}
+
+.analysisbox-rightline {
+	width: 68px;
+	border-bottom: 1px dashed #dfeaef;
+	position: absolute;
+	margin-top: -30px;
+	right: 0px;
+}
+
+.analysisbox-ul .station-container {
+	height: 28px;
+	overflow-y: hidden;
+}
+
+li.analysisPro.analysisbox-li1.signal-rada-detail {
+	width: 100%;
+}
+
+.analysisbox-ul .signal-rada {
+	min-height: 28px;
+	margin-top: 5px;
+	margin-bottom: 8px;
+}
+
+.analysisbox-ul .signal-rada-angle .signal-rada-angle-item {
+    float: left;
+    width: 88px;
+    height: 25px;
+    line-height: 25px;
+    cursor: default;
+    font-weight: normal;
+    text-align: center;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    color: #828487;
+}
+
+.analysisbox-ul .signal-rada-angle {
+	width: 266px;
+    height: 27px;
+    border: 1px solid #3c82e4;
+    color: #6295cc;
+    border-radius: 15px;
+    line-height: 21px;
+    margin: 5px 0 5px 7px;
+}
+
+.analysisbox-ul .signal-rada-angle .signal-rada-angle-item.item-click {
+	background-color: #ea9420;
+	color: #fff;
+}
+.warning-analysis-container .signal-rada-detail-item.selectedpro {
+	background: #ea9420;
+}
+
+.signal-rada-detail-item i {
+	color: #828487;
+}
+
+.signal-rada-detail-item i.signal-rada-detail-item-i {
+	cursor: pointer;
+}
+
+.analysisbox-ul .signal-rada-angle .signal-rada-angle-item.signal-rada-angle-item-i {
+	cursor: pointer;
+	color: #2667b6;
+}
+
+.warning-analysis-container .signal-rada-detail-item.selectedpro .signal-rada-detail-item-i {
+	color: #fff;
+}
+
+.analysisbox-ul .signal-rada-angle .signal-rada-angle-item.item-click span {
+	color: #fff;
+}
+
+.warning-analysis-container .analysisbox-li1 > div {
+	height: 25px;
+	float: left;
+	line-height: 25px;
+	padding: 0px 6px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.warning-analysis-container .analysisbox-li1 > div > i {
+	font-style: normal;
+}

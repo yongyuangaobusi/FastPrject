@@ -1,0 +1,18 @@
+.monostatic-radar-container .station-item {
+    float: left;
+    width: 40px;
+    margin-left: 10px;
+    color: #B9BABF;
+    line-height: 20px;
+}
+
+.monostatic-radar-container .monostatic-radar-item-name {
+    color: #5E83AF;
+    height: 20px;
+    width: 180px;
+    line-height: 20px;
+}
+
+.monostatic-radar-container .monostatic-radar-item {
+    height: 20px;
+}

@@ -1,0 +1,294 @@
+.guide_status_tail{
+	position: absolute;
+    height: 100%;
+    color: #fff;
+    font-size: 13px;
+    display: inline-block;
+    z-index: 1;
+    left: 850px;
+    width: 1100px;
+    height: 65px;
+    margin-top: 10px;
+}
+.guide_status_wrap{
+    color: #fff;
+    font-size: 13px;
+    display: inline-block;
+    width: 100%;
+    height: 65px;
+    margin-top: -5px;
+}
+
+.guide_status_wrap .guide_status_title{
+	height: 65px;
+    width: 75px;
+	float: left;
+}
+
+.guide_status_title .guide_status_title_up, 
+.guide_status_title .guide_status_title_down{
+     width: 75px;
+    height: 20px;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  /*   margin-top: 12px; */
+  margin-top: 23px;
+}
+
+.guide_status_title .guide_status_title_down{
+	margin-top: 1px;
+}
+
+.guide_status_wrap .guide_status_warning_wrap{
+	width: 30px;
+	height: 65px;
+	float: left;
+	display: none;
+}
+
+.guide_status_warning_wrap .guide_status_warning{
+	width: 25px;
+	height: 25px;
+	margin-top: 20px;
+	position: relative;
+}
+
+.guide_status_warning_wrap .guide_status_warning .guide_status_warning_lighting{
+	width: 25px;
+	height: 27px;
+	position: absolute;
+	background: url("../../img/zgstatus/warn_status_warning.gif") no-repeat;
+	top: -5px;
+	left: 0px;
+	cursor: pointer;
+}
+
+.guide_status_warning .guide_status_warning_tip{
+	position: absolute;
+	top: 35px;
+	left: -87px;
+	width: 192px;
+	background-color: #fff;
+    background-repeat: repeat-x;
+    background-size: cover;
+    border-radius: 3px;
+}
+
+.guide_status_warning .guide_status_warning_tip .guide_status_warning_tip_arrows_wrap{
+	position: absolute;
+    top: -11px;
+    left: 89px;
+    background-color: transparent;
+    width: 23px;
+    height: 11px;
+    overflow: hidden;
+}
+
+.guide_status_warning .guide_status_warning_tip .guide_status_warning_tip_arrows{
+    position: absolute;
+    /*background-image: url("../../img/customdate/bg_gray.png");*/
+   	background-color: #fff;
+    background-repeat: repeat-x;
+    background-size: cover;
+    width: 15px;
+    height: 15px;
+    left: 3px;
+    top: 5px;
+    transform: rotateZ(45deg);
+}
+
+.guide_status_warning .guide_status_warning_tip .guide_status_warning_tip_content{
+	width: 192px;
+	padding: 5px 10px;
+	line-height: 20px;
+    word-break: break-all;
+    color: #ff7916;
+    font-weight: bold;
+}
+
+.guide-status-list-wrap{
+	color: #6191E6;
+    font-size: 13px;
+    display: inline-block;
+    height: 65px;
+    float: left;
+    overflow: hidden;
+    max-width: 980px;
+    position: relative;
+}
+
+.guide-status-list-wrap .guide-status-list{
+	height: 65px; 
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.guide_status_opr_prev_wrap,
+.guide_status_opr_next_wrap{
+	width: 10px;
+	height: 65px;
+    float: left;
+}
+
+.guide_status_opr_prev_wrap .guide_status_opr_prev{
+	width: 10px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #EEF5FD;
+	margin-top: 20px;
+/* 	border-radius: 20px 0 0 20px; */
+	text-align: center;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.4);
+	border-top:1px solid #79A4D6; 
+    border-bottom:1px solid #79A4D6; 
+    border-left: 1px solid #79A4D6; 
+}
+
+.guide_status_opr_next_wrap .guide_status_opr_next{
+	width: 10px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #EEF5FD;
+	margin-top: 20px;
+/* 	border-radius: 0 20px 20px 0; */
+	text-align: center;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.4);
+	border-top:1px solid #79A4D6; 
+    border-bottom:1px solid #79A4D6; 
+}
+
+.guide_status_opr_next_wrap .no_right_info_operate{
+	border-right:1px solid #79A4D6; 
+}
+
+.guide_status_operate{
+	width: 25px;
+	height: 25px;
+	float:left;
+    margin-top: 20px;
+    cursor:pointer;
+	background-color: #EEF5FD;
+    background-image: url(../../img/area-select-arr.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    border-top:1px solid #79A4D6; 
+    border-bottom:1px solid #79A4D6; 
+    border-right: 1px solid #79A4D6; 
+}
+
+.showInfoForFeedback{
+    transform: rotate(-180deg);
+    border-right: none; 
+    border-left: 1px solid #79A4D6; 
+}
+
+.guide_status_opera_act:ACTIVE{
+	/* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.guide_status_opr{
+	width: 60px;
+    float: left;
+}
+
+.guide_status_opr .guide_status_forecast_light{
+	display: inline-block;
+	height: 24px;
+}
+
+.guide_status_opr .guide_status_guide_light{
+	display: inline-block;
+	height: 24px;
+    margin-top: -7px;
+}
+
+.guide_status_opr_content{
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	background-color: #EEF5FD;
+	text-align: center;
+	border-top:1px solid #79A4D6; 
+    border-bottom:1px solid #79A4D6; 
+}
+
+.guide_status_guide_list,.status_country,.guide_status_forecast_list{
+	height: 20px;
+	line-height: 20px;
+    text-align: center;
+}
+
+.icon-icon{
+	height: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #afb6c1;
+}
+.forecast_icon,.guide_icon{
+	width: 20px;
+    height: 20px;
+    float: left;
+}
+.status_wtbicon{
+	background-color: white;
+	color: #999;
+	font-size:15px;
+	cursor: pointer;
+}
+
+
+
+#guideStatus_tail .guide_status_list_table{
+	width: 705px;
+	margin-left: 75px;
+	overflow-y:auto;
+    background-color: #EEF5FD;
+    margin-top: -15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #79A4D6; 
+    display: none;
+}
+#guideStatus_tail .guide_status_list_table .eachCityDiv{
+	float:left;
+	width:60px;
+	height:946px; 
+	overflow:hidden;
+	border-right:1px solid #6191E6; 
+}
+#guideStatus_tail .guide_status_list_table .eachCityDiv:LAST-CHILD{
+	border-right:none; 
+}
+#guideStatus_tail .guide_status_list_table .eachCityDiv:LAST-CHILD{
+	width:80px;
+}
+#guideStatus_tail .guide_status_list_table .eachCityDiv .eachCountryLightDiv{
+	height:25px;
+	text-align: center;
+}
+#guideStatus_tail .guide_status_list_table .eachCityDiv .eachCountryDiv{
+/* 	height:25px;
+	line-height:25px; */
+	text-align: center;
+    color: #6191E6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

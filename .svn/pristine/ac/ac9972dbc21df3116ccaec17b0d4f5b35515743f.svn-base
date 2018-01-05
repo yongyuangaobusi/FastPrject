@@ -1,0 +1,33 @@
+.modal-header {
+	height: 40px;
+	color: #555;
+	border-top: 3px solid #2D78B9;
+	border-bottom: 1px solid #2D78B9;
+}
+
+.modal-sm .modal-header{
+	border-bottom: none;
+}
+
+.modal-header .close {
+	margin-top: -8px;
+	font-size: 22px;
+}
+
+.modal-title {
+	overflow: inherit;
+	margin-top: -15px;
+	margin-left: -15px;
+	padding-left: 10px;
+	padding-top: 8px;
+	display: block;
+	width: 70px;
+	height: 38px;
+	color: #2D78B9;
+	white-space: nowrap;
+	border-bottom: 3px solid #2D78B9;
+}
+
+.modal-sm .modal-title{
+	border-bottom: none;
+}

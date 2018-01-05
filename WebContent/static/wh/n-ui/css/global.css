@@ -1,0 +1,117 @@
+ul li {
+	list-style: none;
+}
+
+.sepScn {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	background: #D5DCE2;
+}
+
+.sepScn .sepScnMap {
+	position: relative;
+	width: 50%;
+	height: 50%;
+	float: left;
+	border: 1px solid black;
+	z-index: 0;
+}
+
+.sepScn .sepScnMap .mapTitle {
+	position: absolute;
+	top: 50px;
+	width: 80%;
+	height: 30px;
+	font-weight: 500;
+	font-size: 17px;
+	text-align: center;
+	color: black;
+}
+
+.sepScn .sepScnMap .mapProduct {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	font-weight: 500;
+	font-size: 17px;
+	text-align: center;
+	border-top: 3px solid #1A94DD;
+	background: white;
+}
+
+.date-prepend {
+	font-size: 13px;
+}
+
+.date-prepend i {
+	height: 22px;
+	line-height: 22px;
+	min-width: 22px;
+	margin: 0 4px;
+	vertical-align: middle;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.57);
+	color: #135D99;
+}
+
+.date-panel {
+    position: relative;
+    float: left;
+    margin: 0px 0;
+    margin-bottom: -2px;
+    padding: 6px 6px;
+    width: 100%;
+    background-color: #f1f8fe;
+}
+
+.date-panel ul {
+	margin: 0px;
+	padding: 0px;
+	display: block;
+	width: auto;
+}
+
+.date-panel ul li {
+	float: left;
+	display: block;
+	margin-left: 3px;
+	margin-right: 3px;
+	min-width: 22px;
+}
+
+.date-panel ul li div {
+	width: 42px;
+	height: 22px;
+}
+
+.date-tool {
+	z-index: 8001;
+}
+
+.date-tool li {
+	    border: 1px rgba(4, 78, 142, 0.3) solid;
+}
+
+.date-tool  li:hover {
+	background: #2E78BA;
+	color: #FFF;
+}
+
+.date-prepend {
+	
+}
+
+.date-prepend span {
+	vertical-align: middle;
+	text-align: center;
+	margin: auto 4px;
+}
+
+.date-prepend .date-icon-only {
+	margin: auto 14px;
+}

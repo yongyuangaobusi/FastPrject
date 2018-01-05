@@ -1,0 +1,228 @@
+@CHARSET "UTF-8";
+
+/**** 滚动条样式  start ****/
+::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+}
+
+::-webkit-scrollbar-track-piece {
+	background: #E8E8E8;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #B5B8BD;
+	border-radius: 6px;
+}
+
+/**** 滚动条样式  end ****/
+
+.pace .pace-progress{
+    z-index: 2000;
+    top: 47px;
+    height: 3px;
+/*     background: #4CEBEC; */
+    background: linear-gradient(to right, #39C0C1 0%, #2DFCFF 100%);
+}
+
+.nriet-navbar{
+	background: #213045;
+	margin-bottom: 0px;
+	border: none;
+	z-index: 1999;
+	border-bottom: 3px solid #2E78BA !important ;
+	/* box-shadow: 0px 1px 6px #213045; */
+}
+.nriet-navbar .navbar-fixed-top{
+	border: none;
+}
+.nriet-navbar .navbar-header{
+	position: relative;
+    height: 100%;
+    /* width: 30%; */
+    display: block;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #FFF;
+    font: 22px/47px 'Microsoft YaHei', Helvetica, arial, sans-serif;
+    padding-left: 40px;
+    /* text-shadow: 1px 1px 1px #7D7D7D; */
+}
+.nriet-navbar .navbar-right{
+	position:relative;
+	margin-right: 15px;
+	display: block;
+	height: 100%;
+	color: #BECEDA;
+    font: 16px/47px 'Microsoft YaHei', Helvetica, arial, sans-serif;
+}
+
+.navbar-top-links li{
+    padding: 0px 10px;
+    /* background: #2B3E59; */
+    min-width: 84px;
+    text-align: center;
+    float: left;
+    display: block;
+    /* text-shadow: 1px 1px 1px #000; */
+    /* border-right: 1px rgba(35, 95, 178, 0.68) solid; */
+    cursor: pointer;
+}
+.nav > li.active{
+	background: #4aadff;
+	color: #FFF;
+}
+
+.nav > li.hover{
+	
+}
+
+@-webkit-keyframes fadeInHover {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInHover {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.nav > li.fadeInHover {
+    -webkit-animation-name: fadeInHover;
+    animation-name: fadeInHover;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    z-index: 100;
+    background: #2E78BA;
+	color: #FFF;
+}
+
+
+
+.nriet-footer.footer.fixed{
+	background: #213045;
+	padding: 0px;
+	border:none;
+	font: 12px/27px 'Microsoft YaHei', Helvetica, arial, sans-serif;
+	text-indent: 10px;
+	color: #BDC7D4;
+/*     text-shadow: 1px 1px 1px #000;
+    box-shadow:0px -1px 6px #213045; */
+}
+
+
+.nriet-page {
+	position: absolute;
+	top: 50px;
+	bottom: 27px;
+	left: 0px;
+	right: 0px;
+	overflow: hidden;
+}
+.nriet-page .nriet-gis{
+	position: absolute;
+	z-index:0;
+	height: 100%;
+	width: 100%;
+}
+.nriet-page .nriet-page-mask {
+	position: relative;
+	z-index: 2000;
+	margin: 50px auto 30px auto;
+	float: left;
+}
+.nriet-page-mask .nriet-busis {
+	position: relative;
+	float: left;
+	background: #CCC;
+}
+
+#topUserNav{
+	position: relative;
+    margin-right: 15px;
+    display: block;
+    height: 100%;
+}
+#topUserNav>li{
+	min-width: 40px;
+    text-align: center;
+    float:left;
+    display: block;
+    cursor: pointer;
+    margin: 0 12px
+}
+#topUserNav>li.nav-userInfo{
+	min-width: 80px;
+}
+li.nav-userInfo>i.nav-userInfo-icon{
+	background-image:url(../img/userInfo.png);
+	background-position: 50% 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 47px;
+    display: block;
+}
+li.nav-userInfo>i{
+	font: 13px/47px 'Microsoft YaHei', Helvetica, arial, sans-serif;
+    float: left;
+    margin: 0 5px;
+}
+#topUserNav>li.nav-splitLine{
+	width: 11px;
+	margin: 0;
+}
+#topUserNav>li.nav-splitLine>i{
+	height: 30px;
+	margin: 8px 5px;
+	width: 1px;
+	border-right: 1px solid #ccc;
+}
+
+.nav-userMsg{
+	position: relative;
+}
+.nav-exit{
+	display: block;
+    transform: rotate(90deg);
+}
+.inner-message-tips{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border-radius: 100px;
+	top: 12px;
+	right: 10px;
+	background-color: red;
+	color: #fff;
+	display: inline-block;
+	font-style: normal;
+	font-size: 11px;
+}
+
+@media screen and (max-width:1280px){
+	.nriet-navbar .navbar-right.navbar-top-links{
+		margin-right: 0px;
+	}
+}

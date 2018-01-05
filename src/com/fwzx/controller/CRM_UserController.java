@@ -1,0 +1,295 @@
+package com.fwzx.controller;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fwzx.util.Methods;
+
+public class CRM_UserController {
+	
+	
+	static String une = "";
+	public static final String url = "http://10.48.36.6:8080/RestAPIV20.ashx?userId=%25E6%25B2%25B3%25E5%258C%2597%25E7%259C%2581%25E6%25B0%2594%25E8%25B1%25A1%25E6%259C%258D%25E5%258A%25A1%25E4%25B8%25AD%25E5%25BF%2583&pwd=fwzx321&interfaceId=getSurfEleByTimeAndStaID&dataCode=SURF_CHN_MUL_HOR&elements=Station_Name,TEM,PRE_1h,PRS,RHU,WIN_D_Avg_10mi,WIN_S_Avg_10mi,WEP_Now&dataFormat=json";
+	String[] str = { "54308", "54311", "54318", "54319", "54420", "54423", "54425", "54430", "54432", "54510", "54512",
+			"54515", "54518", "54519", "54520", "54521", "54612", "54613", "54436", "54438", "54449", "54540", "54541",
+			"54429", "54434", "54437", "54439", "54522", "54531", "54532", "54533", "54534", "54535", "54539", "53397",
+			"53491", "53392", "53399", "53492", "53498", "53499", "53593", "54301", "54304", "54401", "54404", "54405",
+			"54408", "54511", "54527", };
+
+	public static List<Map<String, String>> getAreaUIdStation() {
+		ApplicationContext aContext = new ClassPathXmlApplicationContext("myselfMain.xml");
+
+		JdbcTemplate jdbcTemplate = (JdbcTemplate) aContext.getBean("jdbcTemplate2");
+
+		String sql = "SELECT areaId,stationId FROM north_eletric";
+		List<Map<String, String>> list = jdbcTemplate.query(sql, new RowMapper() {
+			@Override
+			public Map<String, String> mapRow(ResultSet arg0, int arg1) throws SQLException {
+				Map<String, String> map = new HashMap<>();
+				map.put(arg0.getString(2), arg0.getString(1));
+				return map;
+			}
+		});
+		return list;
+	}
+	
+	public static List<String> getstation() {
+		ApplicationContext aContext = new ClassPathXmlApplicationContext("myselfMain.xml");
+
+		JdbcTemplate jdbcTemplate = (JdbcTemplate) aContext.getBean("jdbcTemplate2");
+
+		String sql = "SELECT stationId FROM north_eletric";
+		List<String> list = jdbcTemplate.queryForList(sql, String.class);
+		return list;
+	}
+	
+		
+
+public static void main(String[] args) {
+		Calendar calendar = Calendar.getInstance();
+
+		Date pp = new Date();
+		calendar.setTime(pp);
+		calendar.add(Calendar.HOUR, -8);
+		Date timeop = calendar.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String time = sdf.format(timeop);
+		String q = time.substring(0, 4);
+		String w = time.substring(5, 7);
+		String e = time.substring(8, 10);
+		String r = time.substring(11, 13);
+
+		time = q + w + e + r + "00" + "00";
+		List<String> templist = new ArrayList<>();
+		List<Map<String, String>> li = getAreaUIdStation();
+		List<String> list = getstation();
+		for (int i = 0; i < list.size(); i++) {
+
+			String op = "&times=" + time + "&staIds=" + list.get(i);
+			Methods m = new Methods();
+
+			List<NameValuePair> formparams = new ArrayList<NameValuePair>();
+			formparams.add(new BasicNameValuePair("a", "b"));
+			try {
+				String s = m.getMethod(url + op);
+
+				s = s.substring(1, s.length() - 1);
+
+				html(wash(s, li));
+			} catch (Exception p) {
+			
+			}
+
+		}
+
+	}
+
+	public static void html(String op) throws IOException {
+		File file1 = new File("D:/冀北电科院/实况/");
+		file1.mkdirs();
+
+		File f_html = new File("D:/冀北电科院/实况/" + une + ".html");
+		f_html.createNewFile();
+
+		StringBuilder stringHtml = new StringBuilder();
+
+		// 输入HTML文件内容
+		stringHtml.append(op);
+
+		try {
+
+			// 打开文件
+			PrintStream printStream = new PrintStream(new FileOutputStream("D:/冀北电科院/实况/" + une + ".html"));
+			// 将HTML文件内容写入文件中
+			printStream.println(stringHtml.toString());
+			printStream.close();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	public static String wash(String op, List<Map<String, String>> li) throws ParseException {
+		JSONObject json = JSON.parseObject(op);
+		Map<String, String> map = new HashMap<>();
+		Map<String, String> tempmap = new HashMap<>();
+
+		String q = (String) json.get("Station_Id_C");
+		for (int i = 0; i < li.size(); i++) {
+			map = li.get(i);
+			Iterator iter = map.keySet().iterator();
+			while (iter.hasNext()) {
+				String key = (String) iter.next();
+				String val = map.get(key);
+				tempmap.put(key, val);
+			}
+
+		}
+		une = tempmap.get(q);
+		Calendar calendar = Calendar.getInstance();
+		String w = json.getString("TEM");// wendu
+		String e = json.getString("PRE_1h");// jiangyuliang
+		String r = json.getString("RHU");// shidu
+		String t = json.getString("PRS");// qiya
+		String y = json.getString("WEP_Now");// tianqixianxiang
+		String u = json.getString("WIN_D_Avg_10mi");// fengxinag
+		String i = json.getString("WIN_S_Avg_10mi");// fengsu
+		String o = json.getString("Datetime");
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date=sdf.parse(o);
+		calendar.setTime(date);
+		calendar.add(Calendar.HOUR, 8);
+		Date timeop = calendar.getTime();
+		 o =sdf.format(timeop);
+		List<Object> result = new ArrayList<>();
+		HashMap<String, Object> h = new HashMap<>();
+
+		HashMap<String, Object> temp = new HashMap<>();
+
+		temp.put("000", o);
+		temp.put("001", y);
+		temp.put("002", w);
+		temp.put("003", windSZhuanHuan(Double.valueOf(i)));
+		temp.put("004", windZhuanHuan(Double.valueOf(u)));
+		temp.put("005", r);
+		temp.put("006", e);
+		temp.put("007", t);
+
+		h.put("1001002", temp);
+		return json.toJSONString(h);
+
+	}
+
+	/**
+	 * 风速转换
+	 * 
+	 * @param swi
+	 * @return
+	 */
+	public static String windSZhuanHuan(Double swi) {
+		String wind = "";
+		if (swi >= 0.0 && swi <= 0.2) {
+			wind = "0";
+		} else if (swi <= 1.5) {
+			wind = "1";
+		} else if (swi <= 3.3) {
+			wind = "2";
+		} else if (swi <= 5.4) {
+			wind = "3";
+		} else if (swi <= 7.9) {
+			wind = "4";
+		} else if (swi <= 10.7) {
+			wind = "5";
+		} else if (swi <= 13.8) {
+			wind = "6";
+		} else if (swi <= 17.1) {
+			wind = "7";
+		} else if (swi <= 20.7) {
+			wind = "8";
+		} else if (swi <= 24.4) {
+			wind = "9";
+		} else if (swi <= 28.4) {
+			wind = "10";
+		} else if (swi <= 32.6) {
+			wind = "11";
+		} else {
+			wind = "12";
+		}
+		
+		return wind;
+
+	}
+	
+	
+	
+	
+	
+	
+
+	/**
+	 * 风向转换
+	 * 
+	 * @param swi
+	 * @return
+	 */
+	public static int windZhuanHuan(double sw) {
+		int wind = 0;
+
+		// 1 0~22.5 337.5~360 北风
+		if (sw <= 22.5 && sw >= 0) {
+			wind = 8;
+		} else if (sw <= 360 && sw > 337.5) {
+			wind = 8;
+		}
+		// 2 22.5~67.5 东北风
+		else if (sw <= 67.5 && sw > 22.5) {
+			wind = 1;
+		}
+		// 3 67.5~112.5 东风
+		else if (sw <= 112.5 && sw > 67.5) {
+			wind = 2;
+		}
+		// 4 112.5~157.5 东风
+		else if (sw <= 157.5 && sw > 112.5) {
+			wind = 3;
+		}
+		// 5 157.5~202.5 东风
+		else if (sw <= 202.5 && sw > 157.5) {
+			wind = 4;
+		}
+		// 6 202.5~247.5 东风
+		else if (sw <= 247.5 && sw > 202.5) {
+			wind = 5;
+		}
+		// 7 247.5~292.5 东风
+		else if (sw <= 292.5 && sw > 247.5) {
+			wind = 6;
+		}
+		// 8 292.5~337.5 东风
+		else if (sw <= 337.5 && sw > 292.5) {
+			wind = 7;
+		}
+		return wind;
+
+	}
+
+	public static void deleteAll(File file) {
+
+		if (file.isFile() || file.list().length == 0) {
+			file.delete();
+		} else {
+			File[] files = file.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				deleteAll(files[i]);
+				files[i].delete();
+			}
+
+			if (file.exists()) // 如果文件本身就是目录 ，就要删除目录
+				file.delete();
+		}
+	}
+
+}

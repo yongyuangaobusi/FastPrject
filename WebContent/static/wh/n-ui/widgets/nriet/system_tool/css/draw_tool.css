@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+/* .system_tool {
+	position: absolute;
+	right: 0px;
+	top: 65px;
+	background: url("../img/system-tool.png") center no-repeat;
+	width: 31px;
+	height: 43px;
+	border: 1px solid #C9C9C9;
+	border-left: 4px solid #AE7CFF;
+} */
+.icon-sys_btn_save {
+    content: "\e962";
+}
+.sys_tool_checked {
+    background: url("../img/icon_openBar.png") center no-repeat;
+    width: 37px;
+    height: 43px;
+    float: left;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 0px;
+    z-index: 99;
+}
+
+.systools_content {
+	position: absolute;
+/* 	border-left: 3px solid #AE7CFF; */
+/* 	border-top: 1px solid #CAC9C7;
+	border-bottom: 1px solid #CAC9C7; */
+/* 	background:white; */
+	z-index:999;
+}
+
+.complex_tool {
+	width: 47px;
+	height: 43px;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+}
+
+/* .complex_tool.active,.complex_tool:hover{
+	color:#ffffff;
+	background-color: rgb(106, 177, 243);
+} */
+
+.complex_tool.tool_hover:hover{
+	background-color: rgb(106, 177, 243);
+} 
+.complex_tool i{
+    font-size: 26px;
+    display: inherit;
+    margin-top: 9px;
+}
+.titleCss {
+	color: #6F787F;
+    display: inherit;
+}
+.complex_tool:hover .titleCss,.complex_tool.active .titleCss{
+	color : #ffffff;
+}
+/* .complex_tool .picsize{
+    height: 28px;
+    margin-top: 4px;
+    padding: 2px;
+    width: 32px;
+} */
+
+.icon_size_curve{
+    color: #09B592 ;
+}
+
+.icon_size_broken_line{
+    color: #2993e0 ;
+}
+
+.icon_size_edit{
+    color: #2993E0 ;
+}
+
+.icon_size_delete{
+	color:#FF0000 ;
+}
+
+.icon_size_brush{
+	color:#337ab7 ;
+}
+
+.icon_size_polishing{
+    color: rgba(191, 39, 55, 0.42) ;
+}
+
+.buttonclick{
+	background-color: rgb(106, 177, 243) ;
+} 
+
+.iconClick{
+	color: #FFFFFF;
+}
+
+.dottedDivision{
+    height: 26px;
+    width: 3px;
+    float: left;
+    margin-top: 10px;
+    border-left: 1px dotted #677278;
+    border-right: 1px dotted #677278;
+}
+
+.systools_content .sys_tool_title{
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 16px;
+   	margin: 15px 0 0 7px;
+    color: white;
+}
+
+.systools_content .buttonContainer {
+    background-color: white;
+    height: 43px;
+    width: 460px;
+    float: left;
+}
+
+.systools_content .sys_tool_checked_click {
+    background: url("../img/icon_closeBar.png") center no-repeat;
+}
+
+.complex_tool img.picsize {
+    height: 36px;
+    margin-top: 5px;
+}

@@ -1,0 +1,95 @@
+.product-analysis-title .product-analysis-title-container {
+    min-width: 20px;
+    min-height: 35px;
+    background-color: #46597a;
+    border-right: 20px solid #46597a;
+    border-radius: 20px;
+}
+
+.product-analysis-title-container .title-name {
+    float: left;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+    padding: 0 15px 0 15px;
+}
+
+.product-analysis-title-container .title-time-container {
+    float: left;
+    height: 100%;
+    color: white;
+}
+
+.product-analysis-title-container .title-time-container .title-time-detail {
+    float: right;
+    width: 55px;
+}
+
+.product-analysis-title-container .title-time-container .title-time-detail .title-time-detail-content {
+    text-align: center;
+    border-radius: 10px;
+    width: 50px;
+    margin-top: 0.6em;
+    height: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.product-analysis-title-container .title-time-container .title-time-detail .title-time-detail-content.title-time-click {
+ 	background-color: #4b9efe;
+}
+
+.product-analysis-title-container .time-change-up{
+	background: url("../img/time_up.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 13px;
+    float: left;
+    width: 30px;
+    cursor: pointer;
+    margin-top: 11px;	
+}
+
+.product-analysis-title-container .time-change-up.time-change-up-unclick{
+	background: url("../img/time_up_unclick.png");
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: default;
+}
+
+.product-analysis-title-container .time-change-down{
+	background: url("../img/time_down.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 13px;
+    float: left;
+    width: 30px;
+    cursor: pointer;
+	margin-top: 11px;	
+}
+
+.product-analysis-title-container .time-change-down.time-change-down-unclick{
+	background: url("../img/time_down_unclick.png");
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: default;
+}
+
+.product-analysis-title-container .close-button .close-button-click {
+	
+}
+
+.product-analysis-title-container .close-button {
+	background: url("../img/close-button.png");
+	background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    cursor: pointer;
+    float: left;
+    height: 35px;
+    width: 35px;
+}

@@ -1,0 +1,62 @@
+package com.fwzx.controller;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.fwzx.base.SecurityUtils;
+import com.fwzx.util.MD5;
+
+
+
+@Controller
+@RequestMapping(value="admin")
+public class CRM_UserController {
+   
+	@Autowired
+	private JdbcTemplate jdbcTemplate2;
+
+	
+	
+	@RequestMapping(value="login")
+	public String loginIndex(HttpServletRequest request){
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+        String sql = "SELECT usercode,password FROM `user` where locked='1'";
+		List<String[]> list = jdbcTemplate2.query(sql, new RowMapper() {
+			@Override
+			public String[] mapRow(ResultSet arg0, int arg1) throws SQLException {
+                String [] args = new String[2];
+                args[0] = arg0.getString(1);
+                args[1] = arg0.getString(2);
+				return args;
+			}
+		});
+		try {
+			if(!username.equals(list.get(0)[0])){
+				request.setAttribute("msg", "用户名不存在");
+				return "login";
+			}else{
+			if ((MD5.getMD5ofStr(password)).equals(list.get(0)[1])) {
+				SecurityUtils.onLogin(username);
+			} else {
+				request.setAttribute("msg", "密码错误");
+				return "login";
+			}
+			}
+		} catch (Exception e) {
+			return "login";
+		}
+		return "index";
+	}
+
+   
+}
